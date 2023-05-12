@@ -1,0 +1,243 @@
+;---------------------------------------------------------------------------
+; Standing Strong Kick
+; CNS difficulty: easy
+[Statedef 280]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+poweradd= -1000
+ctrl = 0
+velset = 0,0
+anim = 220
+
+[State 280, effekt]
+type = helper
+helpertype = normal
+postype = p1
+name = "Dark Magician Combo Special"
+pos = 50,0
+stateno = 285
+ownpal = 1
+trigger1 = animelem = 10
+
+
+[State 280, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+; Standing Light Punch
+; CNS difficulty: easy
+[Statedef 285]
+type    = S				;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A				;Move-type: A-attack, I-idle, H-gethit
+physics = S				;Physics: S-stand, C-crouch, A-air
+juggle  = 1				;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0			;Set velocity (x,y) (Def: no change)
+ctrl = 0				;Set ctrl (Def: no change)
+anim = 285				;Change animation (Def: no change)
+poweradd = 20			;Power to add (Def: 0)
+sprpriority = 2			;Set layering priority to 2 (in front)
+
+[State 285, effekt]
+type = helper
+helpertype = normal
+postype = p1
+name = "Dark Magician Combo Special Ball"
+pos = 51,0
+stateno = 289
+ownpal = 1
+trigger1 = animelem = 11
+
+
+
+[State 285, destroyself]
+type = destroyself
+trigger1 = animtime= 0
+trigger2 = time = 77
+;---------------------------------------------------------------------------
+; Standing Light Punch
+; CNS difficulty: easy
+[Statedef 289]
+type    = S				;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= A				;Move-type: A-attack, I-idle, H-gethit
+physics = S				;Physics: S-stand, C-crouch, A-air
+juggle  = 1				;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0			;Set velocity (x,y) (Def: no change)
+ctrl = 0				;Set ctrl (Def: no change)
+anim = 289				;Change animation (Def: no change)
+poweradd = 20			;Power to add (Def: 0)
+sprpriority = 2			;Set layering priority to 2 (in front)
+
+
+[State 289, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA
+damage = 153, 0
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 0, 8
+sparkno = 0
+sparkxy = -10, -35
+hitsound = s200, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -1
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-0
+air.hittime = 12
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+down.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+airguard.cornerpush.veloff = 0
+palfx.time = 50
+palfx.add = 0,-200,0
+palfx.mul = 256,256,256
+palfx.sinadd = 40,80,40,10
+invertall = 1
+palfx.time = 50
+palfx.add = 100,0,100
+palfx.mul = 120,20,124
+palfx.sinadd = 85,110,55,10
+invertall = 1
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Animelem = 1
+trigger2 = Animelem = 2
+trigger3 = Animelem = 3
+x = 19
+
+
+
+
+[State 289, destroyself]
+type = destroyself
+trigger1 = animtime= 0
+trigger2 = time = 18
+
+
+
+
+
+
+
+
+;---------------------------------------------------------------------------
+; Standing Strong Kick
+; CNS difficulty: easy
+[Statedef 290]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+poweradd= -50
+ctrl = 0
+velset = 0,0
+anim = 210
+
+[State 290, Explod]
+type = Explod
+trigger1 = time = 1
+anim = 299
+pos = p2dist x + 0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 35
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+
+
+
+
+
+[State 290, effekt]
+type = helper
+helpertype = normal
+postype = p1
+name = "Spellbinding Circle"
+pos = -0,-0
+stateno = 295
+ownpal = 1
+trigger1 = time = 36
+
+
+[State 290, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;---------------------------------------------------------------------------
+; Standing Strong Kick
+; CNS difficulty: easy
+[Statedef 295]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+poweradd= -1000
+ctrl = 0
+velset = 0,0
+anim = 295
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem =1
+attr = S, NA
+animtype  = Medium
+damage    = 0
+guardflag = MA
+pausetime = 0,80
+sparkno = 0
+sparkxy = -5,-25
+hitsound   = 0,0
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -1.1
+air.velocity = -2.5,-4
+
+[State 9876, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 1
+x = p2dist x + 0
+
+[State 9876, destroyself]
+type = destroyself
+trigger1 = animtime = 0
+
+
+
+
+
+
+
+
+
+
+
+
