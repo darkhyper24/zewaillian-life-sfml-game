@@ -137,7 +137,7 @@ void menu::initVariables()
 
 	mainmenu[3].setFont(font);
 	mainmenu[3].setFillColor(Color::White);
-	mainmenu[3].setString("exitt");
+	mainmenu[3].setString("exit");
 	mainmenu[3].setCharacterSize(90);
 	mainmenu[3].setPosition(Vector2f(250, 640 / (11) + 450));
 
